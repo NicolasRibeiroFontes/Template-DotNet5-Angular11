@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using Template.CrossCutting.IoC;
+using Template.CrossCutting.Swagger;
 using Template.Data.Context;
 
 namespace Template
@@ -33,7 +34,17 @@ namespace Template
                 }
                 )
             );
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+            });
+
             NativeInjector.RegisterServices(services);
+            services.AddSwaggerConfiguration();
 
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
@@ -57,6 +68,7 @@ namespace Template
                 app.UseHsts();
             }
 
+            app.UseSwaggerConfiguration();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             if (!env.IsDevelopment())
