@@ -35,6 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Template.CrossCutting.ExceptionHandler\Template.CrossCutting.ExceptionHandler.csproj" />
     <ProjectReference Include="..\Template.CrossCutting.IoC\Template.CrossCutting.IoC.csproj" />
     <ProjectReference Include="..\Template.CrossCutting.Notification\Template.CrossCutting.Notification.csproj" />
     <ProjectReference Include="..\Template.CrossCutting.Swagger\Template.CrossCutting.Swagger.csproj" />

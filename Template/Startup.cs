@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using Template.CrossCutting.ExceptionHandler.Providers;
 using Template.CrossCutting.IoC;
 using Template.CrossCutting.Notification.ViewModels;
 using Template.CrossCutting.Swagger;
@@ -76,6 +77,7 @@ namespace Template
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             });
 
+            app.UseExceptionHandlerMiddleware();
             app.UseSwaggerConfiguration();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
