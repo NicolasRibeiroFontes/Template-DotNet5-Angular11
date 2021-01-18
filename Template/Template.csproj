@@ -35,6 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Template.CrossCutting.IoC\Template.CrossCutting.IoC.csproj" />
     <ProjectReference Include="..\Template.Data\Template.Data.csproj" />
   </ItemGroup>
 
