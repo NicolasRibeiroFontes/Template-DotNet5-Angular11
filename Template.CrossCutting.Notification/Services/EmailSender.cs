@@ -12,12 +12,10 @@ namespace Template.CrossCutting.Notification.Services
     public class EmailSender : IEmailSender
 	{
 		private readonly EmailConfiguration _emailConfig;
-		//private readonly ILogService logService;
 
-		public EmailSender(EmailConfiguration emailConfig/*, ILogService logService*/)
+		public EmailSender(EmailConfiguration emailConfig)
 		{
 			_emailConfig = emailConfig;
-			//this.logService = logService;
 		}
 
 		private string GetMessage(string code)
@@ -74,7 +72,7 @@ namespace Template.CrossCutting.Notification.Services
 			}
 			catch (Exception ex)
 			{
-				//logService.SaveLog(LogType.Error, $"Error to send email to {mailMessage.To}: " + ex.Message, null);
+
 			}
 			finally
 			{
@@ -96,7 +94,7 @@ namespace Template.CrossCutting.Notification.Services
 			}
 			catch (Exception ex)
 			{
-				//logService.SaveLog(LogType.Error, $"Error to send async email to {mailMessage.To}: " + ex.Message, null);
+
 			}
 			finally
 			{

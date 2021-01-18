@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template", "Template\Template.csproj", "{AAAEE455-3AFE-42B1-A75F-01D40333E718}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Template", "Template\Template.csproj", "{AAAEE455-3AFE-42B1-A75F-01D40333E718}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Web", "1-Web", "{6FEED039-CC4D-4CB6-AF39-7B1BD1E6EDBE}"
 EndProject
@@ -17,21 +17,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1-Data", "4.1-Data", "{F8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2-CrossCutting", "4.2-CrossCutting", "{13779FA3-D71B-4254-9EB3-944FE5DFB998}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template.Application", "Template.Application\Template.Application.csproj", "{80EF0FF9-44F4-49F0-9C4B-B9845686C0B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Template.Application", "Template.Application\Template.Application.csproj", "{80EF0FF9-44F4-49F0-9C4B-B9845686C0B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template.Domain", "Template.Domain\Template.Domain.csproj", "{19B2550D-23EF-446C-A543-90F4B6CE3C81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Template.Domain", "Template.Domain\Template.Domain.csproj", "{19B2550D-23EF-446C-A543-90F4B6CE3C81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template.Data", "Template.Data\Template.Data.csproj", "{FCA3D4F7-58CC-4575-9B3C-4F860E94DA78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Template.Data", "Template.Data\Template.Data.csproj", "{FCA3D4F7-58CC-4575-9B3C-4F860E94DA78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template.CrossCutting.Auth", "Template.CrossCutting.Auth\Template.CrossCutting.Auth.csproj", "{C8F5FEB8-EC33-4070-B791-E7F7DD4C19C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Template.CrossCutting.Auth", "Template.CrossCutting.Auth\Template.CrossCutting.Auth.csproj", "{C8F5FEB8-EC33-4070-B791-E7F7DD4C19C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template.CrossCutting.IoC", "Template.CrossCutting.IoC\Template.CrossCutting.IoC.csproj", "{A8E1BD16-8E81-451C-8CB7-4EF877E01591}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Template.CrossCutting.IoC", "Template.CrossCutting.IoC\Template.CrossCutting.IoC.csproj", "{A8E1BD16-8E81-451C-8CB7-4EF877E01591}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template.CrossCutting.Swagger", "Template.CrossCutting.Swagger\Template.CrossCutting.Swagger.csproj", "{102E1000-86EF-4C19-BE52-3550EB610B25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Template.CrossCutting.Swagger", "Template.CrossCutting.Swagger\Template.CrossCutting.Swagger.csproj", "{102E1000-86EF-4C19-BE52-3550EB610B25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template.CrossCutting.Notification", "Template.CrossCutting.Notification\Template.CrossCutting.Notification.csproj", "{ED4D6C68-C037-43F0-A332-0B34586A22B5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template.CrossCutting.Log", "Template.CrossCutting.Log\Template.CrossCutting.Log.csproj", "{7058EA74-AC98-4BDB-99C1-12F2852B07CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Template.CrossCutting.Notification", "Template.CrossCutting.Notification\Template.CrossCutting.Notification.csproj", "{ED4D6C68-C037-43F0-A332-0B34586A22B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,10 +69,6 @@ Global
 		{ED4D6C68-C037-43F0-A332-0B34586A22B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED4D6C68-C037-43F0-A332-0B34586A22B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED4D6C68-C037-43F0-A332-0B34586A22B5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7058EA74-AC98-4BDB-99C1-12F2852B07CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7058EA74-AC98-4BDB-99C1-12F2852B07CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7058EA74-AC98-4BDB-99C1-12F2852B07CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7058EA74-AC98-4BDB-99C1-12F2852B07CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,7 +84,6 @@ Global
 		{A8E1BD16-8E81-451C-8CB7-4EF877E01591} = {13779FA3-D71B-4254-9EB3-944FE5DFB998}
 		{102E1000-86EF-4C19-BE52-3550EB610B25} = {13779FA3-D71B-4254-9EB3-944FE5DFB998}
 		{ED4D6C68-C037-43F0-A332-0B34586A22B5} = {13779FA3-D71B-4254-9EB3-944FE5DFB998}
-		{7058EA74-AC98-4BDB-99C1-12F2852B07CE} = {13779FA3-D71B-4254-9EB3-944FE5DFB998}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {01FA4D8E-CF4C-4782-A21D-935EA047D218}
