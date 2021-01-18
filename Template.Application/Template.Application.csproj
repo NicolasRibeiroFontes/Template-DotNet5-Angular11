@@ -4,4 +4,15 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Template.CrossCutting.Auth\Template.CrossCutting.Auth.csproj" />
+    <ProjectReference Include="..\Template.CrossCutting.ExceptionHandler\Template.CrossCutting.ExceptionHandler.csproj" />
+    <ProjectReference Include="..\Template.CrossCutting.Notification\Template.CrossCutting.Notification.csproj" />
+    <ProjectReference Include="..\Template.Domain\Template.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

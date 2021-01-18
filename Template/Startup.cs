@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using System;
+using Template.Application.AutoMapper;
 using Template.CrossCutting.Auth.Providers;
 using Template.CrossCutting.ExceptionHandler.Providers;
 using Template.CrossCutting.IoC;
@@ -53,6 +55,7 @@ namespace Template
             NativeInjector.RegisterServices(services);
             services.AddSwaggerConfiguration();
             services.AddCustomJWTConfiguration();
+            services.AddAutoMapper(typeof(AutoMapperSetup));
 
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
