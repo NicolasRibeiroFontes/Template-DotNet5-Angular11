@@ -133,7 +133,7 @@ namespace Template.Controllers
             }
         }
 
-        [HttpGet("activate-email-code/{email}/{code}"), AllowAnonymous]
+        [HttpGet("activate/{email}/{code}"), AllowAnonymous]
         public IActionResult ActivateByEmail(string email, string code)
         {
             try

@@ -40,7 +40,7 @@ namespace Template.Data.Context
             Profile[] _profiles = new[]
             {
                 new Profile { Id = 1, Name = "Admin", IsActive = true },
-                new Profile { Id = 2, Name = "User", IsActive = true }
+                new Profile { Id = 2, Name = "User", IsActive = true, IsDefault = true }
             };
 
             User[] _users = new[]

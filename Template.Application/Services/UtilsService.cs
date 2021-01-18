@@ -35,7 +35,7 @@ namespace Template.Application.Services
 			if (!host.Contains("http"))
 				host = "https://" + host;
 
-			return string.Concat(host, "/api/users/ativar/", email, "/", code);
+			return string.Concat(host, "/api/users/activate/", email, "/", code);
 		}
 
         public static bool IsAdmin(string profile)

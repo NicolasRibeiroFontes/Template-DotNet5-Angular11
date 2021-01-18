@@ -87,6 +87,7 @@ namespace Template
             app.UseExceptionHandlerMiddleware();
             app.UseSwaggerConfiguration();
             app.UseHttpsRedirection();
+            app.UseAuthentication();
             app.UseStaticFiles();
             if (!env.IsDevelopment())
             {
@@ -94,7 +95,14 @@ namespace Template
             }
 
             app.UseRouting();
+            app.UseCors(c =>
+            {
+                c.AllowAnyHeader();
+                c.AllowAnyMethod();
+                c.AllowAnyOrigin();
+            });
 
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

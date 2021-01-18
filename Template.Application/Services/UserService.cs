@@ -139,12 +139,14 @@ namespace Template.Application.Services
             try
             {
                 User _user = mapper.Map<User>(user);
+                _user.ProfileId = _profile.Id;
+                _user.Code = UtilsService.GenerateCode(8);
 
                 repository.Create(_user);
 
                 string _generateUrlEmail = UtilsService.GenerateURL(_user.Code, _user.Email, host);
 
-                emailSender.SendEmailAsync(new EmailViewModel(new string[] { _user.Email }, "Cadastro Realizado - AltaCafe", "ACCOUNT-CREATED"), new string[] { _user.Name, _generateUrlEmail });
+                emailSender.SendEmailAsync(new EmailViewModel(new string[] { _user.Email }, "Account Created - Template", "ACCOUNT-CREATED"), new string[] { _user.Name, _generateUrlEmail });
 
                 return true;
             }

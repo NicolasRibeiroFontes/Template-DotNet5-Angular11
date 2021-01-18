@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Template.Domain.Entities;
 
 namespace Template.Domain.Interfaces
 {
-	public interface IModuleRepository
+    public interface IModuleRepository
 	{
+		List<Module> GetByProfileId(int profileId);
 	}
 }
