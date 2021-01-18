@@ -4,4 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="2.10.1" />
+    <PackageReference Include="MimeKit" Version="2.10.1" />
+  </ItemGroup>
+
 </Project>

@@ -36,6 +36,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Template.CrossCutting.IoC\Template.CrossCutting.IoC.csproj" />
+    <ProjectReference Include="..\Template.CrossCutting.Notification\Template.CrossCutting.Notification.csproj" />
     <ProjectReference Include="..\Template.CrossCutting.Swagger\Template.CrossCutting.Swagger.csproj" />
     <ProjectReference Include="..\Template.Data\Template.Data.csproj" />
   </ItemGroup>

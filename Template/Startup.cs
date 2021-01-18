@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using Template.CrossCutting.IoC;
+using Template.CrossCutting.Notification.ViewModels;
 using Template.CrossCutting.Swagger;
 using Template.Data.Context;
 
@@ -43,6 +45,7 @@ namespace Template
                         .AllowAnyHeader());
             });
 
+            services.AddSingleton(Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>());
             NativeInjector.RegisterServices(services);
             services.AddSwaggerConfiguration();
 
@@ -67,6 +70,11 @@ namespace Template
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
 
             app.UseSwaggerConfiguration();
             app.UseHttpsRedirection();
