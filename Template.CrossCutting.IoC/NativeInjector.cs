@@ -21,7 +21,6 @@ namespace Template.CrossCutting.IoC
 
             #region Repositories
 
-            services.AddScoped<IRepository, Repository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IProfileRepository, ProfileRepository>();
             services.AddScoped<IModuleRepository, ModuleRepository>();

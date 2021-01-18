@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Template.Data.Context;
 
 namespace Template.Data.Migrations
 {
     [DbContext(typeof(MySQLContext))]
-    partial class MySQLContextModelSnapshot : ModelSnapshot
+    [Migration("20210118143224_DefaultValuesContext")]
+    partial class DefaultValuesContext
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -211,7 +213,7 @@ namespace Template.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2021, 1, 18, 14, 34, 0, 18, DateTimeKind.Local).AddTicks(6471),
+                            CreatedDate = new DateTime(2021, 1, 18, 14, 32, 23, 775, DateTimeKind.Local).AddTicks(6768),
                             CreatedUser = 1,
                             Email = "admin@template.com",
                             IsActive = true,
@@ -224,7 +226,7 @@ namespace Template.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2021, 1, 18, 14, 34, 0, 21, DateTimeKind.Local).AddTicks(257),
+                            CreatedDate = new DateTime(2021, 1, 18, 14, 32, 23, 778, DateTimeKind.Local).AddTicks(3754),
                             CreatedUser = 1,
                             Email = "user@template.com",
                             IsActive = true,
@@ -239,13 +241,13 @@ namespace Template.Data.Migrations
             modelBuilder.Entity("Template.Domain.Entities.ModuleProfile", b =>
                 {
                     b.HasOne("Template.Domain.Entities.Module", "Module")
-                        .WithMany("Profiles")
+                        .WithMany()
                         .HasForeignKey("ModuleId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Template.Domain.Entities.Profile", "Profile")
-                        .WithMany("Modules")
+                        .WithMany()
                         .HasForeignKey("ProfileId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -258,24 +260,12 @@ namespace Template.Data.Migrations
             modelBuilder.Entity("Template.Domain.Entities.User", b =>
                 {
                     b.HasOne("Template.Domain.Entities.Profile", "Profile")
-                        .WithMany("Users")
+                        .WithMany()
                         .HasForeignKey("ProfileId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Profile");
-                });
-
-            modelBuilder.Entity("Template.Domain.Entities.Module", b =>
-                {
-                    b.Navigation("Profiles");
-                });
-
-            modelBuilder.Entity("Template.Domain.Entities.Profile", b =>
-                {
-                    b.Navigation("Modules");
-
-                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }

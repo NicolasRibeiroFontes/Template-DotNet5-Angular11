@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Template.Data.Context;
 
 namespace Template.Data.Migrations
 {
     [DbContext(typeof(MySQLContext))]
-    partial class MySQLContextModelSnapshot : ModelSnapshot
+    [Migration("20210118143147_FieldsInUserAndModule")]
+    partial class FieldsInUserAndModule
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,10 +26,7 @@ namespace Template.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("CreatedUser")
                         .HasColumnType("int");
@@ -36,9 +35,7 @@ namespace Template.Data.Migrations
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<bool>("IsActive")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("tinyint(1)")
-                        .HasDefaultValue(true);
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Name")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
@@ -58,19 +55,6 @@ namespace Template.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Modules");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedUser = 0,
-                            Icon = "dashboard.png",
-                            IsActive = true,
-                            Name = "Dashboard",
-                            Sequence = 1,
-                            URL = "dashboard",
-                            UpdatedUser = 0
-                        });
                 });
 
             modelBuilder.Entity("Template.Domain.Entities.ModuleProfile", b =>
@@ -86,18 +70,6 @@ namespace Template.Data.Migrations
                     b.HasIndex("ProfileId");
 
                     b.ToTable("ModuleProfiles");
-
-                    b.HasData(
-                        new
-                        {
-                            ModuleId = 1,
-                            ProfileId = 1
-                        },
-                        new
-                        {
-                            ModuleId = 1,
-                            ProfileId = 2
-                        });
                 });
 
             modelBuilder.Entity("Template.Domain.Entities.Profile", b =>
@@ -107,18 +79,13 @@ namespace Template.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("CreatedUser")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsActive")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("tinyint(1)")
-                        .HasDefaultValue(true);
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsDefault")
                         .HasColumnType("tinyint(1)");
@@ -135,26 +102,6 @@ namespace Template.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Profiles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedUser = 0,
-                            IsActive = true,
-                            IsDefault = false,
-                            Name = "Admin",
-                            UpdatedUser = 0
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedUser = 0,
-                            IsActive = true,
-                            IsDefault = false,
-                            Name = "User",
-                            UpdatedUser = 0
-                        });
                 });
 
             modelBuilder.Entity("Template.Domain.Entities.User", b =>
@@ -167,10 +114,7 @@ namespace Template.Data.Migrations
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("CreatedUser")
                         .HasColumnType("int");
@@ -179,9 +123,7 @@ namespace Template.Data.Migrations
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<bool>("IsActive")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("tinyint(1)")
-                        .HasDefaultValue(true);
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsAuthorised")
                         .HasColumnType("tinyint(1)");
@@ -206,48 +148,20 @@ namespace Template.Data.Migrations
                     b.HasIndex("ProfileId");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedDate = new DateTime(2021, 1, 18, 14, 34, 0, 18, DateTimeKind.Local).AddTicks(6471),
-                            CreatedUser = 1,
-                            Email = "admin@template.com",
-                            IsActive = true,
-                            IsAuthorised = true,
-                            Name = "Admin",
-                            Password = "8D66A53A381493BEC08DA23CEF5A43767F20A42C",
-                            ProfileId = 1,
-                            UpdatedUser = 0
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedDate = new DateTime(2021, 1, 18, 14, 34, 0, 21, DateTimeKind.Local).AddTicks(257),
-                            CreatedUser = 1,
-                            Email = "user@template.com",
-                            IsActive = true,
-                            IsAuthorised = true,
-                            Name = "User",
-                            Password = "8D66A53A381493BEC08DA23CEF5A43767F20A42C",
-                            ProfileId = 2,
-                            UpdatedUser = 0
-                        });
                 });
 
             modelBuilder.Entity("Template.Domain.Entities.ModuleProfile", b =>
                 {
                     b.HasOne("Template.Domain.Entities.Module", "Module")
-                        .WithMany("Profiles")
+                        .WithMany()
                         .HasForeignKey("ModuleId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Template.Domain.Entities.Profile", "Profile")
-                        .WithMany("Modules")
+                        .WithMany()
                         .HasForeignKey("ProfileId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Module");
@@ -258,24 +172,12 @@ namespace Template.Data.Migrations
             modelBuilder.Entity("Template.Domain.Entities.User", b =>
                 {
                     b.HasOne("Template.Domain.Entities.Profile", "Profile")
-                        .WithMany("Users")
+                        .WithMany()
                         .HasForeignKey("ProfileId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Profile");
-                });
-
-            modelBuilder.Entity("Template.Domain.Entities.Module", b =>
-                {
-                    b.Navigation("Profiles");
-                });
-
-            modelBuilder.Entity("Template.Domain.Entities.Profile", b =>
-                {
-                    b.Navigation("Modules");
-
-                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }
