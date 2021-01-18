@@ -35,6 +35,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Template.Application\Template.Application.csproj" />
+    <ProjectReference Include="..\Template.CrossCutting.Auth\Template.CrossCutting.Auth.csproj" />
     <ProjectReference Include="..\Template.CrossCutting.ExceptionHandler\Template.CrossCutting.ExceptionHandler.csproj" />
     <ProjectReference Include="..\Template.CrossCutting.IoC\Template.CrossCutting.IoC.csproj" />
     <ProjectReference Include="..\Template.CrossCutting.Notification\Template.CrossCutting.Notification.csproj" />

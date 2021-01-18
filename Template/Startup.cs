@@ -1,13 +1,15 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpOverrides;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using System;
+using Template.CrossCutting.Auth.Providers;
 using Template.CrossCutting.ExceptionHandler.Providers;
 using Template.CrossCutting.IoC;
 using Template.CrossCutting.Notification.ViewModels;
@@ -46,9 +48,11 @@ namespace Template
                         .AllowAnyHeader());
             });
 
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton(Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>());
             NativeInjector.RegisterServices(services);
             services.AddSwaggerConfiguration();
+            services.AddCustomJWTConfiguration();
 
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
