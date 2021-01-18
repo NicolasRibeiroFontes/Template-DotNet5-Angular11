@@ -1,0 +1,5 @@
+- Create Entities/Mappings and update DB
+- Create Repositories, Services and Controllers
+- Post User sending e-mail confirmation
+- Authenticate User
+- Forgot and Change Password
