@@ -1,14 +1,30 @@
-<h1>Hello, world!</h1>
-<p>Welcome to your new single-page application, built with:</p>
+<h1>Template .Net 5 / Angular 11</h1>
+<p>Welcome to this template created to help the developers to start a new project using .Net as backend platform and Angular 11 as frontend framework.</p>
+<p>Please, look below the links to help you to know more about all technologies in this project.</p>
 <ul>
-  <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
-  <li><a href='https://angular.io/'>Angular</a> and <a href='http://www.typescriptlang.org/'>TypeScript</a> for client-side code</li>
-  <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/core/introduction" target="_blank">.Net Platform</a>, <a href='https://get.asp.net/' target="_blank">ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
+  <li><a href='https://angular.io/' target="_blank">Angular</a> and <a href='http://www.typescriptlang.org/' target="_blank">TypeScript</a> for client-side code</li>
+  <li><a href='http://getbootstrap.com/' target="_blank">Bootstrap</a> for layout and styling</li>
+  <li><a href='https://www.mysql.com/' target="_blank">MySQL</a> for database</li>
 </ul>
+<hr/>
+<p>The pre-requisites to run this template in your local machine are: </p>
+<li><a href='https://visualstudio.microsoft.com/vs/' target="_blank">Visual Studio 2019 Community</a></li>
+<li><a href='https://dotnet.microsoft.com/download/dotnet/5.0' target="_blank">.Net 5 SDK</a></li>
+<li><a href='https://angular.io/cli' target="_blank">Angular CLI 11</a></li>
+<li><a href='https://www.mysql.com/downloads/' target="_blank">MySQL Developer</a></li>
+<hr/>
 <p>To help you get started, we've also set up:</p>
 <ul>
-  <li><strong>Client-side navigation</strong>. For example, click <em>Counter</em> then <em>Back</em> to return here.</li>
-  <li><strong>Angular CLI integration</strong>. In development mode, there's no need to run <code>ng serve</code>. It runs in the background automatically, so your client-side resources are dynamically built on demand and the page refreshes when you modify any file.</li>
-  <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and your <code>dotnet publish</code> configuration automatically invokes <code>ng build</code> to produce minified, ahead-of-time compiled JavaScript files.</li>
+  <li><strong>Create Account:</strong> Find it in Login > Create Account. There is fields validations, e-mail notifications, class mappings, etc.</li>
+  <li><strong>Authenticate / Change Password</strong>. Find it in Login Page. There is forms to remember password, validate code and change it. There is authorisation in client and server side.</li>
+  <li><strong>Authorization and Permissions</strong>. Managed by the server. There is private API's to authorize (or not) if the user can access this data. Also, there is a middleware in client side to send a JWT token to validate the user logged.</li>
+  <li><strong>Change Account Details</strong>. There is a default page to user logged change his name.</li>
+  <li><strong>Admin Features</strong>. The admin user has different modules to access than normal user which he can see all the users registered on the platform.</li>
+  <li><strong>Profile and Modules Management</strong>. This template has the functionality in the server side to manage modules by each profile. Find it in MySQLContext in Data project.</li>
+  <li><strong>E-mail Notification</strong>. There is a micro service in CrossCutting layer to send the notifications by e-mail. You have to update the server e-mail information in appsettings.json</li>
+  <li><strong>Swagger Documentation</strong>. There is a swagger documentation which will show all APIs documentation by the URL /api/documentation which is updated automatically when you create new APIs.</li>
 </ul>
-<p>The <code>ClientApp</code> subdirectory is a standard Angular CLI application. If you open a command prompt in that directory, you can run any <code>ng</code> command (e.g., <code>ng test</code>), or use <code>npm</code> to install extra packages into it.</p>
+<hr/>
+<p>This template has been developed by <a href='https://nicolasfontes.com.br/' target="_blank">Nicolas Fontes</a>. 
+The code is deployed in <a href='https://github.com/NicolasRibeiroFontes' target="_blank">Github</a> and is free to be used for any developer.</p>

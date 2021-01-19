@@ -36,7 +36,7 @@ namespace Template.Data.Context
             {
                 new Module { Id = 1, Name = "Dashboard", Icon = "dashboard.png", URL = "dashboard", IsActive = true, Sequence = 1 },
                 new Module { Id = 2, Name = "Users", Icon = "users.png", URL = "users", IsActive = true, Sequence = 2 },
-                new Module { Id = 3, Name = "Accounts", Icon = "accounts.png", URL = "accounts", IsActive = true, Sequence = 3 },
+                new Module { Id = 3, Name = "Account", Icon = "accounts.png", URL = "accounts", IsActive = true, Sequence = 3 },
             };
 
             Profile[] _profiles = new[]

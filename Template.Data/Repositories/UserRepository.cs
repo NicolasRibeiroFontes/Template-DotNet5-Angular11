@@ -36,5 +36,10 @@ namespace Template.Data.Repositories
 		{
 			return Find(x => x.Id == userId, i => i.Include(x => x.Profile).ThenInclude(x => x.Modules));
 		}
+
+		public IQueryable<User> Get()
+		{
+			return Query(x => x.IsActive, i => i.Include(x => x.Profile).ThenInclude(x => x.Modules));
+		}
 	}
 }

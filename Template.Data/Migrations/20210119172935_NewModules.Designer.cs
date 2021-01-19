@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Template.Data.Context;
 
 namespace Template.Data.Migrations
 {
     [DbContext(typeof(MySQLContext))]
-    partial class MySQLContextModelSnapshot : ModelSnapshot
+    [Migration("20210119172935_NewModules")]
+    partial class NewModules
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,7 +90,7 @@ namespace Template.Data.Migrations
                             CreatedUser = 0,
                             Icon = "accounts.png",
                             IsActive = true,
-                            Name = "Account",
+                            Name = "Accounts",
                             Sequence = 3,
                             URL = "accounts",
                             UpdatedUser = 0
@@ -248,7 +250,7 @@ namespace Template.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2021, 1, 19, 17, 45, 58, 538, DateTimeKind.Local).AddTicks(7686),
+                            CreatedDate = new DateTime(2021, 1, 19, 17, 29, 34, 774, DateTimeKind.Local).AddTicks(3373),
                             CreatedUser = 1,
                             Email = "admin@template.com",
                             IsActive = true,
@@ -261,7 +263,7 @@ namespace Template.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2021, 1, 19, 17, 45, 58, 541, DateTimeKind.Local).AddTicks(223),
+                            CreatedDate = new DateTime(2021, 1, 19, 17, 29, 34, 777, DateTimeKind.Local).AddTicks(5840),
                             CreatedUser = 1,
                             Email = "user@template.com",
                             IsActive = true,

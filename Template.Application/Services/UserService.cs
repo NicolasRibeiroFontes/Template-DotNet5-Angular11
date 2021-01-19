@@ -15,19 +15,19 @@ using Profile = Template.Domain.Entities.Profile;
 
 namespace Template.Application.Services
 {
-	public class UserService : IUserService
-	{
-		private readonly IMapper mapper;
+    public class UserService : IUserService
+    {
+        private readonly IMapper mapper;
         private readonly IEmailSender emailSender;
         private readonly ITokenService tokenService;
-		private readonly IUserRepository repository;
-		private readonly IProfileRepository profileRepository;
+        private readonly IUserRepository repository;
+        private readonly IProfileRepository profileRepository;
 
-		public UserService(IMapper mapper, ITokenService tokenService, IEmailSender emailSender, 
+        public UserService(IMapper mapper, ITokenService tokenService, IEmailSender emailSender,
             IUserRepository repository, IProfileRepository profileRepository)
         {
-			this.mapper = mapper;
-			this.tokenService = tokenService;
+            this.mapper = mapper;
+            this.tokenService = tokenService;
             this.emailSender = emailSender;
             this.repository = repository;
             this.profileRepository = profileRepository;
@@ -110,7 +110,7 @@ namespace Template.Application.Services
             repository.Update(_user);
 
             emailSender.SendEmailAsync(new EmailViewModel(new string[] { _user.Email }, "Change Password - AltaCafe", "FORGOT-PASSWORD"), new string[] { _user.Name, _user.Code });
-            
+
             return true;
         }
 
@@ -151,6 +151,20 @@ namespace Template.Application.Services
             {
                 throw new ApiException(ex.Message, HttpStatusCode.BadRequest);
             }
+        }
+
+        public List<UserViewModel> Get()
+        {
+            return mapper.Map<List<UserViewModel>>(repository.Get());
+        }
+
+        public bool Put(UserUpdateAccount user)
+        {
+            User _user = GetByIdPrivate(user.Id);
+            _user.Name = user.Name;
+
+            repository.Update(_user);
+            return true;
         }
 
 

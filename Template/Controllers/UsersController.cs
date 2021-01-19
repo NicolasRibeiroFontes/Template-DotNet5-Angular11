@@ -93,7 +93,7 @@ namespace Template.Controllers
 
                 return Ok(service.ActivateUser(userId));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -110,7 +110,7 @@ namespace Template.Controllers
 
                 return Ok(service.DeactivateUser(userId));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -127,7 +127,7 @@ namespace Template.Controllers
 
                 return Ok(service.GetById(userId));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -141,7 +141,42 @@ namespace Template.Controllers
                 service.ActivateByEmail(email, code);
                 return Redirect("https://" + Request.Host.Value);
             }
-            catch (Exception ex)
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+                ContextUserViewModel _user = authService.GetLoggedUser();
+                if (_user == null || !UtilsService.IsAdmin(_user.Profile))
+                    return Unauthorized();
+
+                return Ok(service.Get());
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+
+        [HttpPut]
+        public IActionResult Put(UserUpdateAccount user)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                return Ok(service.Put(user));
+            }
+            catch (Exception)
             {
                 throw;
             }

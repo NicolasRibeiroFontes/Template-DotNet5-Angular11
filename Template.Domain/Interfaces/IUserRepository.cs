@@ -10,5 +10,6 @@ namespace Template.Domain.Interfaces
 		User GetByEmailAndCode(string email, string code);
 		IQueryable<User> GetByProfileId(int profileId);
 		User GetById(int userId);
+		IQueryable<User> Get();
 	}
 }

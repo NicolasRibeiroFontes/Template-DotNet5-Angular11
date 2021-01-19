@@ -1,4 +1,5 @@
-﻿using Template.Application.ViewModels.Users;
+﻿using System.Collections.Generic;
+using Template.Application.ViewModels.Users;
 
 namespace Template.Application.Interfaces
 {
@@ -12,5 +13,7 @@ namespace Template.Application.Interfaces
         bool DeactivateUser(int userId);
         UserViewModel GetById(int userId);
         void ActivateByEmail(string email, string code);
+        List<UserViewModel> Get();
+        bool Put(UserUpdateAccount user);
     }
 }
