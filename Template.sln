@@ -31,7 +31,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Template.CrossCutting.Swagg
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Template.CrossCutting.Notification", "Template.CrossCutting.Notification\Template.CrossCutting.Notification.csproj", "{ED4D6C68-C037-43F0-A332-0B34586A22B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template.CrossCutting.ExceptionHandler", "Template.CrossCutting.ExceptionHandler\Template.CrossCutting.ExceptionHandler.csproj", "{5480AFB8-E206-41CA-9C80-201691C2DA91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Template.CrossCutting.ExceptionHandler", "Template.CrossCutting.ExceptionHandler\Template.CrossCutting.ExceptionHandler.csproj", "{5480AFB8-E206-41CA-9C80-201691C2DA91}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-Tests", "0-Tests", "{8D9A23D4-8F34-456A-83A8-7ED3A0A8ECD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template.UnitTests", "Template.UnitTests\Template.UnitTests.csproj", "{39627FF6-E5AD-411C-B444-8C0704A63F25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +79,10 @@ Global
 		{5480AFB8-E206-41CA-9C80-201691C2DA91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5480AFB8-E206-41CA-9C80-201691C2DA91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5480AFB8-E206-41CA-9C80-201691C2DA91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39627FF6-E5AD-411C-B444-8C0704A63F25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39627FF6-E5AD-411C-B444-8C0704A63F25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39627FF6-E5AD-411C-B444-8C0704A63F25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39627FF6-E5AD-411C-B444-8C0704A63F25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,6 +99,7 @@ Global
 		{102E1000-86EF-4C19-BE52-3550EB610B25} = {13779FA3-D71B-4254-9EB3-944FE5DFB998}
 		{ED4D6C68-C037-43F0-A332-0B34586A22B5} = {13779FA3-D71B-4254-9EB3-944FE5DFB998}
 		{5480AFB8-E206-41CA-9C80-201691C2DA91} = {13779FA3-D71B-4254-9EB3-944FE5DFB998}
+		{39627FF6-E5AD-411C-B444-8C0704A63F25} = {8D9A23D4-8F34-456A-83A8-7ED3A0A8ECD0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {01FA4D8E-CF4C-4782-A21D-935EA047D218}
