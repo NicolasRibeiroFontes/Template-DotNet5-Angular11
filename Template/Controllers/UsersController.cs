@@ -60,9 +60,9 @@ namespace Template.Controllers
             {
                 return Ok(service.ForgotPassword(email));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return BadRequest(ex.Message);
+                throw;
             }
         }
 
@@ -95,7 +95,7 @@ namespace Template.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                throw;
             }
         }
 
@@ -112,7 +112,7 @@ namespace Template.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                throw;
             }
         }
 
@@ -129,7 +129,7 @@ namespace Template.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                throw;
             }
         }
 
@@ -143,7 +143,7 @@ namespace Template.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                throw;
             }
         }
     }

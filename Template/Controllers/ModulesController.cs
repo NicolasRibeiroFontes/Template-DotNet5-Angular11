@@ -33,9 +33,9 @@ namespace Template.Controllers
 
                 return Ok(service.GetByProfile(int.Parse(_user.Profile)));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return BadRequest(ex.Message);
+                throw;
             }
         }
     }

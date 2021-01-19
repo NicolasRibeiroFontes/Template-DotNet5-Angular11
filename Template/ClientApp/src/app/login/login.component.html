@@ -2,16 +2,19 @@
   <form>
     <h2 class="text-center">Log in</h2>
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Email" [(ngModel)]="user.email" name="email" required="required">
+      <input type="text" class="form-control" placeholder="Email" [(ngModel)]="user.email" name="email"
+        required="required">
     </div>
     <div class="form-group">
-      <input type="password" class="form-control" placeholder="Password" [(ngModel)]="user.password" name="password" required="required">
+      <input type="password" class="form-control" placeholder="Password" [(ngModel)]="user.password" name="password"
+        required="required">
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-primary btn-block" (click)="authenticate()">Log in</button>
     </div>
     <div class="clearfix">
-      <a href="#" class="float-right">Forgot Password?</a>
+      <button type="submit" class="btn btn-light float-right" (click)="view = 'rememberPassword'">Forgot
+        Password?</button>
     </div>
   </form>
   <p class="text-center">
@@ -19,17 +22,70 @@
   </p>
 </div>
 
+<div class="login-form" *ngIf="view == 'rememberPassword'">
+  <form>
+    <h2 class="text-center">Remember Password</h2>
+    <p>Write your e-mail and we will send you a code to change your password</p>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Email" [(ngModel)]="user.email" name="email"
+        required="required">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-block" (click)="sendCode()">Send Code</button>
+    </div>
+  </form>
+  <p class="text-center">
+    <button type="submit" class="btn btn-primary btn-block" (click)="view = 'login'">Login</button>
+  </p>
+</div>
+
+<div class="login-form" *ngIf="view == 'changePassword'">
+  <form>
+    <h2 class="text-center">Change Your Password</h2>
+    <p>Please, insert the code you received in your e-mail and the new password.</p>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Email" [(ngModel)]="userChangePassword.email" name="email" disabled
+        required="required">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Code" [(ngModel)]="userChangePassword.code" name="code"
+        required="required">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" placeholder="Password" [(ngModel)]="userChangePassword.password" name="password"
+        required="required">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" placeholder="Password Confirmation" [(ngModel)]="userChangePassword.passwordConfirm" name="passwordConfirm"
+        required="required">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-block" (click)="changePassword()">Change Password</button>
+    </div>
+  </form>
+  <p class="text-center">
+    <button type="submit" class="btn btn-primary btn-block" (click)="view = 'login'">Login</button>
+  </p>
+</div>
+
 <div class="login-form" *ngIf="view == 'register'">
   <form>
     <h2 class="text-center">Create Account</h2>
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Name" [(ngModel)]="user.name" name="name" required="required">
+      <input type="text" class="form-control" placeholder="Name" [(ngModel)]="user.name" name="name"
+        required="required">
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Email" [(ngModel)]="user.email" name="email" required="required">
+      <input type="text" class="form-control" placeholder="Email" [(ngModel)]="user.email" name="email"
+        required="required">
     </div>
     <div class="form-group">
-      <input type="password" class="form-control" placeholder="Password" [(ngModel)]="user.password" name="password" required="required">
+      <input type="password" class="form-control" placeholder="Password" [(ngModel)]="user.password" name="password"
+        required="required">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" placeholder="Password Confirmation" [(ngModel)]="user.passwordConfirm"
+        name="passwordConfirm" required="required">
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-primary btn-block" (click)="register()">Create Account</button>

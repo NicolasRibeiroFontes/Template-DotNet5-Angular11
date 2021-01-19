@@ -6,13 +6,43 @@ export class ErrorService {
 
   constructor(private alertService: AlertService) { }
 
-  validateError(error){
-      if (Array.isArray(error)){
-          error.forEach(item => {
-              this.alertService.showError(item);
+  validateError(error) {
+    switch (error.status) {
+      case 400: {
+        if (error.error.errors) {
+          Object.keys(error.error.errors).forEach(item => {
+            this.alertService.showError(error.error.errors[item]);
           })
-      }else if (error.status == 404){
-        this.alertService.showError(error.statusText);
+        } else if (error.error.statusCode) {
+          this.alertService.showError(error.error.message);
+        }
+        break;
       }
+      case 401: {
+        if (error.error.statusCode) {
+          this.alertService.showError(error.error.message);
+        } else
+        this.alertService.showError(error.statusText);
+        break;
+      }   
+      case 404: {
+        if (error.error.statusCode) {
+          this.alertService.showError(error.error.message);
+        } else
+        this.alertService.showError(error.statusText);
+        break;
+      }      
+      case 409: {
+        if (error.error.statusCode) {
+          this.alertService.showError(error.error.message);
+        } else
+        this.alertService.showError(error.error.statusText);
+        break;
+      }
+      default: {
+        this.alertService.showError(error.error.statusText);
+        break;
+      }
+    }
   }
 }

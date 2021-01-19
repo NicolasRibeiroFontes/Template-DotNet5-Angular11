@@ -2,11 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Template.CrossCutting.Auth.Interfaces;
 using Template.CrossCutting.Auth.ViewModels;
+using Template.CrossCutting.ExceptionHandler.Extensions;
 
 namespace Template.CrossCutting.Auth.Services
 {
@@ -45,7 +47,7 @@ namespace Template.CrossCutting.Auth.Services
             }
             catch (Exception)
             {
-                throw new UnauthorizedAccessException();
+                throw new ApiException("Invalid Token", HttpStatusCode.Unauthorized);
             }
         }
 
