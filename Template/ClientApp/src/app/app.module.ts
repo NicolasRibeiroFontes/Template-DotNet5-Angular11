@@ -17,6 +17,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { AlertService } from './_services/alert.service';
 import { ErrorService } from './_services/error.service';
 import { NgxLoadingModule } from 'ngx-loading';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,7 @@ import { NgxLoadingModule } from 'ngx-loading';
     Interceptor,    
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    NgxLoadingModule.forRoot({})
+    NgxLoadingModule.forRoot({}), ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [ModuleService, UserService,AlertService, ErrorService, AppComponent, NavMenuComponent ],
   bootstrap: [AppComponent]
