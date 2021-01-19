@@ -7,15 +7,22 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
+import { LoginComponent } from './login/login.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { ModuleService } from './_services/module.service';
+import { Interceptor } from './app.interceptor.module';
+import { UserService } from './_services/user.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { AlertService } from './_services/alert.service';
+import { ErrorService } from './_services/error.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
+    LoginComponent,
     FetchDataComponent
   ],
   imports: [
@@ -24,11 +31,14 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
-    ])
+      { path: 'login', component: LoginComponent },
+      { path: 'crud', component: FetchDataComponent },
+    ]),
+    Interceptor,    
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
-  providers: [],
+  providers: [ModuleService, UserService,AlertService, ErrorService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

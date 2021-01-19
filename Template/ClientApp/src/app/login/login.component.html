@@ -1,0 +1,41 @@
+<div class="login-form" *ngIf="view == 'login'">
+  <form>
+    <h2 class="text-center">Log in</h2>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Email" [(ngModel)]="user.email" name="email" required="required">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" placeholder="Password" [(ngModel)]="user.password" name="password" required="required">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-block" (click)="authenticate()">Log in</button>
+    </div>
+    <div class="clearfix">
+      <a href="#" class="float-right">Forgot Password?</a>
+    </div>
+  </form>
+  <p class="text-center">
+    <button type="submit" class="btn btn-primary btn-block" (click)="view = 'register'">Create an Account</button>
+  </p>
+</div>
+
+<div class="login-form" *ngIf="view == 'register'">
+  <form>
+    <h2 class="text-center">Create Account</h2>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Name" [(ngModel)]="user.name" name="name" required="required">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Email" [(ngModel)]="user.email" name="email" required="required">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" placeholder="Password" [(ngModel)]="user.password" name="password" required="required">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-block" (click)="register()">Create Account</button>
+    </div>
+  </form>
+  <p class="text-center">
+    <button type="submit" class="btn btn-primary btn-block" (click)="view = 'login'">Login</button>
+  </p>
+</div>

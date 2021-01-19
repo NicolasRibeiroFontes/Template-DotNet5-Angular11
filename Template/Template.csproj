@@ -37,6 +37,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\app.interceptor.module.ts" />
+    <None Remove="ClientApp\src\app\_models\module.ts" />
+    <None Remove="ClientApp\src\app\_models\userAuthenticated.ts" />
+    <None Remove="ClientApp\src\app\_models\userLogin.ts" />
+    <None Remove="ClientApp\src\app\_services\module.service.ts" />
+    <None Remove="ClientApp\src\app\_services\user.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Template.Application\Template.Application.csproj" />
     <ProjectReference Include="..\Template.CrossCutting.Auth\Template.CrossCutting.Auth.csproj" />
     <ProjectReference Include="..\Template.CrossCutting.ExceptionHandler\Template.CrossCutting.ExceptionHandler.csproj" />
@@ -44,6 +53,15 @@
     <ProjectReference Include="..\Template.CrossCutting.Notification\Template.CrossCutting.Notification.csproj" />
     <ProjectReference Include="..\Template.CrossCutting.Swagger\Template.CrossCutting.Swagger.csproj" />
     <ProjectReference Include="..\Template.Data\Template.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\app.interceptor.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_models\module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_models\userAuthenticated.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_models\userLogin.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_services\module.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_services\user.service.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

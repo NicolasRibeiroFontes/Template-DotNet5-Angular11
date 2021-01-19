@@ -56,9 +56,6 @@ namespace Template.Application.Services
 
         public UserResponseAuthenticateViewModel Authenticate(UserRequestAuthenticateViewModel user)
         {
-            ValidationService.ValidEmail(user.Email);
-            ValidationService.ValidPassword(user.Password, user.Password);
-
             User _user = repository.GetByEmailAndPassword(user.Email, UtilsService.EncryptPassword(user.Password));
             if (_user == null)
                 throw new ApiException("E-mail/Senha não encontrados", HttpStatusCode.NotFound);
