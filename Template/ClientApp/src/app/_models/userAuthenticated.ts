@@ -1,6 +1,5 @@
-export class UserAuthenticated {
-  id: number;
-  name: string;
-  email: string;
+import { User } from "./user";
+
+export class UserAuthenticated extends User {  
   token: string;
 }

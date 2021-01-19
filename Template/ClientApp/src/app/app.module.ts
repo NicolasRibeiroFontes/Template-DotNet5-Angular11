@@ -19,6 +19,7 @@ import { ErrorService } from './_services/error.service';
 import { NgxLoadingModule } from 'ngx-loading';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { environment } from '../environments/environment';
     NavMenuComponent,
     HomeComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -36,6 +38,7 @@ import { environment } from '../environments/environment';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'users', component: UsersComponent },
     ]),
     Interceptor,    
     BrowserAnimationsModule, // required animations module

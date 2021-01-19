@@ -14,7 +14,7 @@ export class NavMenuComponent {
   _modules: Module[] = [];
   _modulesDefault: Module[] = [
     { name: 'Home', url: '/', icon: 'home', sequence: 1, id: 1},
-    { name: 'Login', url: '/login', icon: 'login', sequence: 2, id: 2},
+    { name: 'Login', url: '/users', icon: 'login', sequence: 2, id: 2},
   ];
   constructor(private moduleService: ModuleService, private router: Router,private errorService: ErrorService) {
     

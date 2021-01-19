@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Module } from "../_models/module";
+import { User } from "../_models/user";
 import { UserAuthenticated } from "../_models/userAuthenticated";
 import { UserChangePassword } from "../_models/userChangePassword";
 import { UserLogin } from "../_models/userLogin";
@@ -27,5 +28,9 @@ export class UserService {
 
   changePassword(data: UserChangePassword): Observable<boolean> {
     return this.http.post<boolean>("https://localhost:44340" + this._module + "/change-password", data);
+  }
+
+  getUsers(): Observable<User[]>{
+    return this.http.get<User[]>("https://localhost:44340" + this._module );
   }
 }
