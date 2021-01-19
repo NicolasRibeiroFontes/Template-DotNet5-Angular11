@@ -47,7 +47,7 @@ namespace Template.CrossCutting.Notification.Services
 		private MimeMessage CreateEmailMessage(EmailViewModel message, IEnumerable<string> parameters)
 		{
 			var emailMessage = new MimeMessage();
-			emailMessage.From.Add(new MailboxAddress("AltaCafe", _emailConfig.From));
+			emailMessage.From.Add(new MailboxAddress("Template", _emailConfig.From));
 			emailMessage.To.AddRange(message.Recipients);
 			emailMessage.Subject = message.Subject;
 

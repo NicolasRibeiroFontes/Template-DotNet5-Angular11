@@ -87,7 +87,7 @@ namespace Template.Application.Services
             _user.Password = UtilsService.EncryptPassword(user.Password);
             repository.Update(_user);
 
-            emailSender.SendEmailAsync(new EmailViewModel(new string[] { _user.Email }, "Lembrar Senha - AltaCafe", "PASSWORD-CHANGED"), new string[] { _user.Name });
+            emailSender.SendEmailAsync(new EmailViewModel(new string[] { _user.Email }, "Lembrar Senha - Template", "PASSWORD-CHANGED"), new string[] { _user.Name });
 
             return true;
         }
