@@ -35,6 +35,8 @@ namespace Template.Data.Context
             Module[] _modules = new[]
             {
                 new Module { Id = 1, Name = "Dashboard", Icon = "dashboard.png", URL = "dashboard", IsActive = true, Sequence = 1 },
+                new Module { Id = 2, Name = "Users", Icon = "users.png", URL = "users", IsActive = true, Sequence = 2 },
+                new Module { Id = 3, Name = "Accounts", Icon = "accounts.png", URL = "accounts", IsActive = true, Sequence = 3 },
             };
 
             Profile[] _profiles = new[]
@@ -56,7 +58,10 @@ namespace Template.Data.Context
             ModuleProfile[] _moduleProfiles = new[]
             {
                 new ModuleProfile{ ProfileId = 1, ModuleId = 1 },
-                new ModuleProfile{ ProfileId = 2, ModuleId = 1 }
+                new ModuleProfile{ ProfileId = 1, ModuleId = 2 },
+                new ModuleProfile{ ProfileId = 1, ModuleId = 3 },
+                new ModuleProfile{ ProfileId = 2, ModuleId = 1 },
+                new ModuleProfile{ ProfileId = 2, ModuleId = 3 }
             };
 
             modelBuilder.Entity<Module>().HasData(_modules);
