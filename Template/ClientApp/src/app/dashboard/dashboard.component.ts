@@ -5,13 +5,13 @@ import { ModuleService } from '../_services/module.service';
 import { Module } from '../_models/module';
 
 @Component({
-  selector: 'app-fetch-data',
-  templateUrl: './fetch-data.component.html'
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html'
 })
-export class FetchDataComponent {
+export class DashboardComponent {
   
 
-  constructor(private navMenu: NavMenuComponent,private moduleService: ModuleService) {
+  constructor() {
     
   }
 }

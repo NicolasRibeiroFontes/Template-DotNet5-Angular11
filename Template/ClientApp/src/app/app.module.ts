@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { ModuleService } from './_services/module.service';
 import { Interceptor } from './app.interceptor.module';
 import { UserService } from './_services/user.service';
@@ -24,7 +24,7 @@ import { NgxLoadingModule } from 'ngx-loading';
     NavMenuComponent,
     HomeComponent,
     LoginComponent,
-    FetchDataComponent
+    DashboardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,7 +33,7 @@ import { NgxLoadingModule } from 'ngx-loading';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
-      { path: 'crud', component: FetchDataComponent },
+      { path: 'dashboard', component: DashboardComponent },
     ]),
     Interceptor,    
     BrowserAnimationsModule, // required animations module
