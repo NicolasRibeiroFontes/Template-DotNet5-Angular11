@@ -9,7 +9,7 @@ namespace Template.Data.Repositories
 {
     public class UserRepository : Repository<User>, IUserRepository
 	{
-		public UserRepository(MySQLContext context)
+		public UserRepository(SQLServerContext context)
 			: base(context) { }
 
 		public User GetByEmailAndPassword(string email, string password)

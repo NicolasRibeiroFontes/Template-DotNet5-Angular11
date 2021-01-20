@@ -7,9 +7,9 @@ using Template.Domain.Entities;
 
 namespace Template.Data.Context
 {
-    public class MySQLContext : DbContext
+    public class SQLServerContext : DbContext
     {
-        public MySQLContext(DbContextOptions<MySQLContext> options)
+        public SQLServerContext(DbContextOptions<SQLServerContext> options)
             : base(options) { }
 
         public DbSet<User> Users { get; set; }

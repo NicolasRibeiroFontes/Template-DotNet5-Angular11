@@ -2,28 +2,31 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Template.Data.Context;
 
 namespace Template.Data.Migrations
 {
-    [DbContext(typeof(MySQLContext))]
-    [Migration("20210118143400_ModuleProfileRelationship")]
-    partial class ModuleProfileRelationship
+    [DbContext(typeof(SQLServerContext))]
+    [Migration("20210120114001_Template.1.0")]
+    partial class Template10
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Relational:MaxIdentifierLength", 64)
+                .UseIdentityColumns()
+                .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.2");
 
             modelBuilder.Entity("Template.Domain.Entities.Module", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<DateTime?>("CreatedDate")
                         .IsRequired()
@@ -35,24 +38,24 @@ namespace Template.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Icon")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("tinyint(1)")
+                        .HasColumnType("bit")
                         .HasDefaultValue(true);
 
                     b.Property<string>("Name")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Sequence")
                         .HasColumnType("int");
 
                     b.Property<string>("URL")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedData")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("UpdatedUser")
                         .HasColumnType("int");
@@ -71,6 +74,28 @@ namespace Template.Data.Migrations
                             Name = "Dashboard",
                             Sequence = 1,
                             URL = "dashboard",
+                            UpdatedUser = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedUser = 0,
+                            Icon = "users.png",
+                            IsActive = true,
+                            Name = "Users",
+                            Sequence = 2,
+                            URL = "users",
+                            UpdatedUser = 0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedUser = 0,
+                            Icon = "accounts.png",
+                            IsActive = true,
+                            Name = "Account",
+                            Sequence = 3,
+                            URL = "accounts",
                             UpdatedUser = 0
                         });
                 });
@@ -97,7 +122,22 @@ namespace Template.Data.Migrations
                         },
                         new
                         {
+                            ModuleId = 2,
+                            ProfileId = 1
+                        },
+                        new
+                        {
+                            ModuleId = 3,
+                            ProfileId = 1
+                        },
+                        new
+                        {
                             ModuleId = 1,
+                            ProfileId = 2
+                        },
+                        new
+                        {
+                            ModuleId = 3,
                             ProfileId = 2
                         });
                 });
@@ -106,7 +146,8 @@ namespace Template.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<DateTime?>("CreatedDate")
                         .IsRequired()
@@ -119,17 +160,17 @@ namespace Template.Data.Migrations
 
                     b.Property<bool>("IsActive")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("tinyint(1)")
+                        .HasColumnType("bit")
                         .HasDefaultValue(true);
 
                     b.Property<bool>("IsDefault")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedData")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("UpdatedUser")
                         .HasColumnType("int");
@@ -153,7 +194,7 @@ namespace Template.Data.Migrations
                             Id = 2,
                             CreatedUser = 0,
                             IsActive = true,
-                            IsDefault = false,
+                            IsDefault = true,
                             Name = "User",
                             UpdatedUser = 0
                         });
@@ -163,10 +204,11 @@ namespace Template.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<string>("Code")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("CreatedDate")
                         .IsRequired()
@@ -178,27 +220,27 @@ namespace Template.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("tinyint(1)")
+                        .HasColumnType("bit")
                         .HasDefaultValue(true);
 
                     b.Property<bool>("IsAuthorised")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProfileId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdatedData")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("UpdatedUser")
                         .HasColumnType("int");
@@ -213,7 +255,7 @@ namespace Template.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2021, 1, 18, 14, 34, 0, 18, DateTimeKind.Local).AddTicks(6471),
+                            CreatedDate = new DateTime(2021, 1, 20, 11, 39, 59, 690, DateTimeKind.Local).AddTicks(746),
                             CreatedUser = 1,
                             Email = "admin@template.com",
                             IsActive = true,
@@ -226,7 +268,7 @@ namespace Template.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2021, 1, 18, 14, 34, 0, 21, DateTimeKind.Local).AddTicks(257),
+                            CreatedDate = new DateTime(2021, 1, 20, 11, 39, 59, 695, DateTimeKind.Local).AddTicks(4422),
                             CreatedUser = 1,
                             Email = "user@template.com",
                             IsActive = true,

@@ -6,7 +6,7 @@ namespace Template.Data.Repositories
 {
     public class ProfileRepository: Repository<Profile>, IProfileRepository
 	{
-		public ProfileRepository(MySQLContext context)
+		public ProfileRepository(SQLServerContext context)
 			: base(context) { }
 
 		public Profile GetDefault()

@@ -13,7 +13,7 @@ namespace Template.Data.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        protected readonly MySQLContext context;
+        protected readonly SQLServerContext context;
         protected DbSet<TEntity> DbSet
         {
             get
@@ -21,7 +21,7 @@ namespace Template.Data.Repositories
                 return context.Set<TEntity>();
             }
         }
-        public Repository(MySQLContext context)
+        public Repository(SQLServerContext context)
         {
             this.context = context;
         }

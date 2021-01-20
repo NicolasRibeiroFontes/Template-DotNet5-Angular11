@@ -8,7 +8,7 @@ namespace Template.Data.Repositories
 {
     public class ModuleRepository: Repository<Module>, IModuleRepository
 	{
-        public ModuleRepository(MySQLContext context)
+        public ModuleRepository(SQLServerContext context)
             : base(context) { }
 
         public List<Module> GetByProfileId(int profileId)
