@@ -1,8 +1,11 @@
-<h1 id="tableLabel">Users (0)
-    <button type="button" class="btn btn-primary float-right" *ngIf="view=='form'" (click)="view='list'; _userSelected = {}">List
-        Users</button>
-    <!-- <button type="button" class="btn btn-primary float-right" *ngIf="view=='list'" (click)="view='form'; _userSelected = {}">Add
-        New</button> -->
+<h1 id="tableLabel">
+  Users ({{_users.length}})
+  <button type="button" class="btn btn-primary float-right" *ngIf="view=='form'" (click)="view='list'; _userSelected = {}">
+    List
+    Users
+  </button>
+  <!-- <button type="button" class="btn btn-primary float-right" *ngIf="view=='list'" (click)="view='form'; _userSelected = {}">Add
+      New</button> -->
 </h1>
 <hr />
 
@@ -33,7 +36,7 @@
             <tr *ngFor="let user of _users">
                 <th scope="row"><button type="button" class="btn btn-primary" (click)="openDetails(user)">Details</button></th>
                 <td>{{user.name}}</td>
-                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
                 <td>{{user.profile?.name}}</td>
             </tr>            
         </tbody>
