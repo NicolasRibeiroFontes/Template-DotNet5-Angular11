@@ -21,6 +21,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { UsersComponent } from './users/users.component';
 import { AccountComponent } from './account/account.component';
+import { StorageService } from './_services/storage.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { AccountComponent } from './account/account.component';
     ToastrModule.forRoot(), // ToastrModule added
     NgxLoadingModule.forRoot({}), ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [ModuleService, UserService,AlertService, ErrorService, AppComponent, NavMenuComponent ],
+  providers: [ModuleService, UserService,AlertService, ErrorService, AppComponent, NavMenuComponent, StorageService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

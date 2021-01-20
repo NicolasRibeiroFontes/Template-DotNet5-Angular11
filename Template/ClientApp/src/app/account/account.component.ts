@@ -14,13 +14,13 @@ export class AccountComponent {
   _userSelected: User = {};
 
   constructor(private userService: UserService, private app: AppComponent, private errorService: ErrorService, private alertService: AlertService) {
-    this._userSelected = JSON.parse(localStorage.getItem('template'));
+    this._userSelected = JSON.parse(localStorage.getItem(this.app.storageName));
   }
 
   save() {
     this.app.loading = true;
     this.userService.update(this._userSelected).subscribe(data => {
-      localStorage.setItem('template', JSON.stringify(this._userSelected));
+      localStorage.setItem(this.app.storageName, JSON.stringify(this._userSelected));
       this.alertService.showSucess("Your account has been updated.");
       this.app.loading = false;      
     }, err => {

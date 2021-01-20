@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   loading: boolean = false;
-  title = 'app';
+  storageName = 'template';
 }

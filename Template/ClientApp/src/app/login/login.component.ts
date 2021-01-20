@@ -24,7 +24,7 @@ export class LoginComponent {
   authenticate() {
     this.app.loading = true;
     this.userService.authenticate(this.user).subscribe(data => {
-      localStorage.setItem('template', JSON.stringify(data));
+      localStorage.setItem(this.app.storageName, JSON.stringify(data));
       this.router.navigateByUrl("/dashboard");
       this.app.loading = false;
     }, err => {
