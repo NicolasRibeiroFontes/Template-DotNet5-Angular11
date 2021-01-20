@@ -1,41 +1,44 @@
-<h1 id="tableLabel">Users (0)
-    <button type="button" class="btn btn-primary float-right" *ngIf="view=='form'" (click)="view='list'; _userSelected = {}">List
-        Users</button>
-    <!-- <button type="button" class="btn btn-primary float-right" *ngIf="view=='list'" (click)="view='form'; _userSelected = {}">Add
-        New</button> -->
+<h1 id="tableLabel">
+  Users ({{_users.length}})
+  <button type="button" class="btn btn-primary float-right" *ngIf="view=='form'" (click)="view='list'; _userSelected = {}">
+    List
+    Users
+  </button>
+  <!-- <button type="button" class="btn btn-primary float-right" *ngIf="view=='list'" (click)="view='form'; _userSelected = {}">Add
+      New</button> -->
 </h1>
 <hr />
 
 <div class="col-md-12" *ngIf="view=='form'">
-    <form>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Name</label>
-            <input type="text" class="form-control" placeholder="Name" [(ngModel)]="_userSelected.name" name="name">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">E-mail</label>
-            <input type="email" class="form-control" placeholder="Email" [(ngModel)]="_userSelected.email" name="email">
-        </div>        
-    </form>
+  <form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Name</label>
+      <input type="text" class="form-control" placeholder="Name" [(ngModel)]="_userSelected.name" name="name">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">E-mail</label>
+      <input type="email" class="form-control" placeholder="Email" [(ngModel)]="_userSelected.email" name="email">
+    </div>
+  </form>
 </div>
 
 <div class="col-md-12" *ngIf="view=='list'">
-    <table class="table table-bordered">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Profile</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let user of _users">
-                <th scope="row"><button type="button" class="btn btn-primary" (click)="openDetails(user)">Details</button></th>
-                <td>{{user.name}}</td>
-                <td>{{user.name}}</td>
-                <td>{{user.profile?.name}}</td>
-            </tr>            
-        </tbody>
-    </table>
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Profile</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of _users">
+        <th scope="row"><button type="button" class="btn btn-primary" (click)="openDetails(user)">Details</button></th>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.profile?.name}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
