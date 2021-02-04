@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
+using System.Linq;
 using Template.Application.Interfaces;
 using Template.Application.ViewModels.Modules;
 using Template.Domain.Entities;
@@ -21,7 +21,7 @@ namespace Template.Application.Services
 
 		public List<ModuleViewModel> GetByProfile(int profileId)
 		{
-			List<Module> _modules = repository.GetByProfileId(profileId);
+			IQueryable<Module> _modules = repository.GetByProfileId(profileId);
 
 			return mapper.Map<List<ModuleViewModel>>(_modules);
 		}

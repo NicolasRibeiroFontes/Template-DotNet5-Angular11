@@ -11,12 +11,12 @@ namespace Template.Data.Repositories
         public ModuleRepository(MySQLContext context)
             : base(context) { }
 
-        public List<Module> GetByProfileId(int profileId)
+        public IQueryable<Module> GetByProfileId(int profileId)
         {
             return (from m in context.Modules
                     join mp in context.ModuleProfiles on m.Id equals mp.ModuleId
                     where mp.ProfileId == profileId
-                    select m).ToList();
+                    select m);
         }
     }
 }
